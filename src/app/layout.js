@@ -2,7 +2,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-// import Footer from "@/components/Footer";
 import { twMerge } from "tailwind-merge";
 import WeatherProvider from "@/WeatherProvider";
 import { QueryClient, QueryClientProvider } from "react-query";

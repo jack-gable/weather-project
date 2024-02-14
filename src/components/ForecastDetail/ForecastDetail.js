@@ -11,9 +11,14 @@ function ForecastDetail({
 	feels_like,
 	temp_min,
 	temp_max,
+	bgColor,
+	description,
 }) {
 	return (
-		<Container className="bg-gray-200 justify-evenly">
+		<Container
+			style={{ backgroundColor: bgColor || "#d1d5db" }}
+			className="justify-evenly"
+		>
 			<div className="flex items-center gap-5">
 				<WeatherIcon iconName={weatherIcon} />
 				<div className="flex flex-col gap-4 justify-center items-center">
@@ -23,8 +28,7 @@ function ForecastDetail({
 					</div>
 					<p className="text-3xl">{`${temp}°`}</p>
 					<p>
-						<span>Feels like</span>
-						<span>{`${feels_like}°`}</span>
+						<span>Feels like</span> <span>{`${feels_like}°`}</span>
 					</p>
 					<p className="flex gap-3">
 						<span className="flex items-center">
@@ -36,6 +40,7 @@ function ForecastDetail({
 							{temp_max}°
 						</span>
 					</p>
+					<p className="capitalize">{description}</p>
 				</div>
 			</div>
 		</Container>

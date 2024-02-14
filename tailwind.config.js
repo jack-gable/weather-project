@@ -13,14 +13,14 @@ module.exports = {
 					to: { opacity: 1 },
 				},
 				slideIn: {
-					from: { transform: "translate(100%, 0%)" },
-					to: { transform: "translate(0%, 100%)" },
+					from: { transform: "translateY(-100%)" },
+					to: { transform: "translateY(0%)" },
 				},
 			},
 			animation: {
-				fadeInBD: "fadeIn 500ms",
+				fadeIn: "fadeIn 500ms",
 				fadeInIW: "fadeIn 600ms both 400ms",
-				slideIn: "slideIn 500ms both cubic-bezier(0, 0.6, 0.32, 1.06) 200ms",
+				slideIn: "slideIn 500ms both ease",
 			},
 		},
 	},

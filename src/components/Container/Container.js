@@ -5,7 +5,7 @@ function Container({ className, ...props }) {
 	return (
 		<div
 			{...props}
-			className={twMerge("w-full border rounded-lg flex p-4 shadow", className)}
+			className={twMerge(" border rounded-lg flex p-4 shadow-md", className)}
 		/>
 	);
 }

@@ -4,14 +4,18 @@ import Container from "../Container";
 import { FiArrowDown, FiArrowUp } from "react-icons/fi";
 import WeatherIcon from "../WeatherIcon";
 import WeatherDetails from "../WeatherDetails";
-import { format, fromUnixTime } from "date-fns";
-import { metersToKilometers } from "@/utils";
+import { format, fromUnixTime, parseISO } from "date-fns";
+import { metersToKilometers, weatherType } from "@/utils";
 import { WeatherContext } from "@/WeatherProvider";
 
 function Weather() {
 	const { data, isLoading } = React.useContext(WeatherContext);
 
 	const firstData = data?.list[0];
+
+	const weatherCondition = firstData?.weather[0].main;
+
+	const bgColor = weatherType[weatherCondition]?.backgroundColor;
 
 	if (isLoading) {
 		return (
@@ -23,8 +27,14 @@ function Weather() {
 
 	return (
 		<>
-			<div className="flex flex-col px-4 pt-4">
-				<Container className="mb-4 bg-sky-300">
+			<h2 className="text-xl font-semibold p-4">
+				Today {format(parseISO(firstData?.dt_txt ?? ""), "MM/dd")}
+			</h2>
+			<div className="flex flex-col px-4 md:flex-row md:gap-4">
+				<Container
+					style={{ backgroundColor: bgColor || "#d1d5db" }}
+					className="w-full mb-4 md:mb-0"
+				>
 					<div className="flex flex-col items-center gap-2 w-full">
 						<WeatherIcon iconName={firstData?.weather[0].icon} />
 						<span className="text-5xl">{firstData?.main.temp ?? 70}°</span>
@@ -45,7 +55,7 @@ function Weather() {
 						<p className="capitalize">{firstData?.weather[0].description}</p>
 					</div>
 				</Container>
-				<Container className="bg-gray-300">
+				<Container className="w-full bg-teal-200">
 					<WeatherDetails
 						visibility={metersToKilometers(firstData?.visibility ?? 10000)}
 						humidity={`${firstData?.main.humidity}%`}

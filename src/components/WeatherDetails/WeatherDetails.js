@@ -11,8 +11,8 @@ function WeatherDetails({
 	sunset,
 }) {
 	return (
-		<div className="flex justify-between w-full">
-			<div className="flex flex-col gap-5">
+		<div className="flex justify-evenly w-full items-center">
+			<div className="flex flex-col gap-5 md:gap-8">
 				<SingleWeatherDetail
 					icon={<FiEye />}
 					information="Visibility"
@@ -24,7 +24,7 @@ function WeatherDetails({
 					value={humidity}
 				/>
 			</div>
-			<div className="flex flex-col gap-5">
+			<div className="flex flex-col gap-5 md:gap-8">
 				<SingleWeatherDetail
 					icon={<IoIosSpeedometer />}
 					information="Wind Speed"
@@ -36,7 +36,7 @@ function WeatherDetails({
 					value={airPressure}
 				/>
 			</div>
-			<div className="flex flex-col gap-5">
+			<div className="flex flex-col gap-5 md:gap-8">
 				<SingleWeatherDetail
 					icon={<FiSunrise />}
 					information="Sunrise"
@@ -57,7 +57,7 @@ function SingleWeatherDetail({ information, icon, value }) {
 		<div className="flex flex-col justify-center items-center gap-2 text-sm font-semibold">
 			<p className="whitespace-nowrap">{information}</p>
 			<div className="text-3xl">{icon}</div>
-			<p>{value}</p>
+			<p className="text-xs">{value}</p>
 		</div>
 	);
 }

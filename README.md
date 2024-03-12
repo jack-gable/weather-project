@@ -14,13 +14,13 @@ Some features that I'd like to implement in the future would be to add more func
 -   _Open weather API_
 -   _Axios_
 -   _Radix UI_
--   _Netlify_
+-   _Vercel_
 
 ## Usage
 
 Follow the link below to visit the app. ⬇️
 
-[MyWeather]()
+[MyWeather](https://weather-project-green.vercel.app/)
 
 ## License
 
